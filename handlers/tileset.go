@@ -185,7 +185,7 @@ func (ts *Tileset) tileJSONHandler(w http.ResponseWriter, r *http.Request) {
 		query = "?" + r.URL.RawQuery
 	}
 
-	tilesetURL := fmt.Sprintf("%s://%s%s", scheme(r), getRequestHost(r), r.URL.Path)
+	tilesetURL := fmt.Sprintf("%s://%s%s", "https", getRequestHost(r), r.URL.Path)
 
 	tileJSON, err := ts.TileJSON(tilesetURL, query)
 	if err != nil {
@@ -292,7 +292,7 @@ func (ts *Tileset) previewHandler(w http.ResponseWriter, r *http.Request) {
 		query = "?" + r.URL.RawQuery
 	}
 
-	tilesetURL := fmt.Sprintf("%s://%s%s", scheme(r), getRequestHost(r), strings.TrimSuffix(r.URL.Path, "/map"))
+	tilesetURL := fmt.Sprintf("%s://%s%s", "https", getRequestHost(r), strings.TrimSuffix(r.URL.Path, "/map"))
 
 	tileJSON, err := ts.TileJSON(tilesetURL, query)
 	if err != nil {
